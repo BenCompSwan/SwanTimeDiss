@@ -31,3 +31,4 @@ class Hello extends React.Component {
 var testNet = neuralNetControllers.createNet();
 neuralNetControllers.viewNetLayers(testNet);
 ReactDOM.render(<Hello />, document.getElementById('root'));
+/*node_modules\.bin\webpack app.tsx --config webpack-config.js*/

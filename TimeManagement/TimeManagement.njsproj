@@ -34,8 +34,11 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CreateMongoCollection.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="dist\app-bundle.js" />
-    <Compile Include="createMongo.js">
+    <Compile Include="checkMongoConnection.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="neuralNetController.js">

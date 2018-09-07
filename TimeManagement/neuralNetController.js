@@ -39,7 +39,7 @@ function updateTrain(net, inputs, truthOut) {
 }
 
 function viewNetLayers(net) {
-    console.log(net.layers)
+    console.log(net.layers);
 }
 
 module.exports = {

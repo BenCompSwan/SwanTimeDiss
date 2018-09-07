@@ -181,7 +181,7 @@ function updateTrain(net, inputs, truthOut) {
 }
 
 function viewNetLayers(net) {
-    window.alert(net.layers)
+    console.log(net.layers);
 }
 
 module.exports = {
