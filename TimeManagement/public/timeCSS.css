@@ -1,0 +1,196 @@
+﻿body {
+}
+
+/*This area is for the top nav bar#####################################################*/
+
+.navArea {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(80,80,255,0.8);
+    padding: 0px 0px 0px 0px;
+}
+
+.logIn {
+    position: fixed;
+    color: rgb(0,0,0);
+    font-style: normal;
+    font-size: 20px;
+    font: 'Palatino Linotype';
+    width: 80px;
+    height: 30px;
+    top: 45px;
+    left: 44%;
+    background-color: rgba(160,160,255,0.8);
+    text-align: center;
+    padding-top: 3px;
+}
+
+.logIn:hover {
+    position: fixed;
+    color: rgb(255,255,255);
+    font-style: normal;
+    font-size: 20px;
+    font: 'Palatino Linotype';
+    width: 80px;
+    height: 30px;
+    top: 45px;
+    left: 44%;
+    background-color: rgba(220,220,255,0.8);
+    text-align: center;
+    padding-top: 3px;
+}
+
+.loggedIn {
+    position: fixed;
+    color: rgb(0,0,0);
+    font-style: normal;
+    font-size: 20px;
+    font: 'Palatino Linotype';
+    top: 45px;
+    height: 30px;
+    background-color: rgba(160,160,255,0.8);
+    text-align: center;
+    padding-top: 3px;
+}
+
+.loggedIn:hover {
+    position: fixed;
+    color: rgb(255,255,255);
+    font-style: normal;
+    font-size: 20px;
+    font: 'Palatino Linotype';
+    top: 45px;
+    height: 30px;
+    background-color: rgba(220,220,255,0.8);
+    text-align: center;
+    padding-top: 3px;
+
+}
+
+#pageTitle {
+    position: fixed;
+    color: rgb(0,0,0);
+    font-style: normal;
+    font-size: 30px;
+    font: 'Palatino Linotype';
+    top: 0px;
+    left: 34%;
+    padding: 0px 0px 0px 0px;
+}
+
+#prefs {
+    position: fixed;
+    width: 130px;
+    left: 2%;
+}
+
+#logOut {
+    position: fixed;
+    width: 90px;
+    left: 90%;
+}
+
+/*This area is for the neural net control buttons######################################*/
+
+.nNButtons {
+    position: fixed;
+    top: 105px;
+    left: 20%;
+    width: 60%;
+    height: 65px;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.buttonsNN {
+    position: fixed;
+    color: rgb(255,255,255);
+    font-style: normal;
+    font-size: 20px;
+    font: 'Palatino Linotype';
+    top: 103px;
+    height: 35px;
+    background-color: rgba(50,50,50,0.8);
+    text-align: center;
+    padding-top: 3px;
+}
+
+.buttonsNN:hover {
+    position: fixed;
+    color: rgb(0,0,0);
+    font-style: normal;
+    font-size: 20px;
+    font: 'Palatino Linotype';
+    top: 103px;
+    height: 35px;
+    background-color: rgba(150,150,150,0.8);
+    text-align: center;
+    padding-top: 3px;
+}
+
+#task {
+    position: fixed;
+    width: 150px;
+    height: 30px;
+    left: 22%;
+}
+
+#block {
+    position: fixed;
+    width: 150px;
+    height: 30px;
+    left: 42%;
+}
+
+#reset {
+    position: fixed;
+    width: 180px;
+    height: 30px;
+    left: 62%;
+}
+
+/*This area is for the timeplan area ##################################################*/
+
+.timeplan {
+    position: fixed;
+    width: 90%;
+    height: 70%;
+    top: 175px;
+    left: 5%;
+    /*background-color: rgba(80,80,255,0.8);*/
+}
+
+.grid {
+    position: fixed;
+    width: 95%;
+    height: 95%;
+    top: 2.5%;
+    left: 2.5%;
+    background-color: rgba(100,100,255,0.8);
+}
+
+.grid-item {
+    width: 24.5%;
+    height: 19.5%;
+    background-color: rgba(140,140,255,0.8);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(80,80,255,0.8);
+}
+
+.grid-item:hover {
+    width: 24.5%;
+    height: 19.5%;
+    background-color: rgba(180,180,255,0.8);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(255,255,255,0.8);
+}
+
+.grid-item.is-dragging,
+.grid-item.is-positioning-post-drag {
+    background: rgba(255,125,0,0.8);
+    z-index: 2;
+}

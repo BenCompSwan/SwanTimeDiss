@@ -41,6 +41,9 @@
     <Compile Include="checkMongoConnection.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="packeryController.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="neuralNetController.js">
       <SubType>Code</SubType>
     </Compile>
@@ -54,6 +57,9 @@
     </Content>
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="public\timeCSS.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="tsconfig.json">
       <SubType>Code</SubType>
     </Content>
@@ -65,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
+    <Folder Include="public\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
