@@ -4,6 +4,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var neuralNetControllers = require('./neuralNetController.js');
 var packController = require('./packeryController.js');
+var $ = require('jquery');
 
 class Hello extends React.Component {
     
