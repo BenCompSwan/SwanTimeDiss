@@ -15,6 +15,7 @@ var ReactDOM = require("react-dom");
 var neuralNetControllers = require('./neuralNetController.js');
 var packController = require('./packeryController.js');
 var $ = require('jquery');
+var clickCounter = 0;
 //class for the index page
 var Hello = /** @class */ (function (_super) {
     __extends(Hello, _super);
@@ -40,7 +41,7 @@ var Hello = /** @class */ (function (_super) {
                     React.createElement("a", { href: "login" }, "Log Out"))),
             React.createElement("div", { className: "nNButtons" },
                 React.createElement("h2", { className: "buttonsNN", id: "task" },
-                    React.createElement("a", { href: "addBlock" }, "Add project")),
+                    React.createElement("a", { href: "addProject" }, "Add project")),
                 React.createElement("h2", { className: "buttonsNN", id: "block" },
                     React.createElement("a", { href: "addBlock" }, "Add block")),
                 React.createElement("h2", { className: "buttonsNN", id: "reset" }, "Reset Neural Network")),

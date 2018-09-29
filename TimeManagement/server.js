@@ -13,10 +13,7 @@ app.set('views', __dirname + '/views');
 app.engine('html', engines.mustache);
 app.set('viewengine', 'html')
 
-//index
-app.get('/', function (req, res) {
-    res.render('index.html', {});
-});
+
 
 //login routing
 app.use('/login', function (req, res) {
@@ -31,6 +28,11 @@ app.use('/login', function (req, res) {
         next;
     }
 });*/
+
+//index
+app.get('/', function (req, res) {
+    res.render('index.html', {});
+});
 
 //project routing
 app.use('/addProject', function (req, res) {

@@ -5,7 +5,6 @@ import * as ReactDOM from "react-dom";
 var neuralNetControllers = require('./neuralNetController.js');
 var packController = require('./packeryController.js');
 var $ = require('jquery');
-var encryption = require('bcrypt');
 var clickCounter = 0;
 
 //class for the index page
@@ -147,11 +146,11 @@ class AddBlock extends React.Component<{}, { value: string }> {
                     </label>
                     <label>
                         Block time:
-                        <input type="text" id="bTime" value={this.state.value} onChange={this.handleChange} required />
+                        <input type="number" id="bTime" value={this.state.value} onChange={this.handleChange} required />
                     </label>
                     <label>
                         Block Amount:
-                        <input type="text" id="bAmount" value={this.state.value} onChange={this.handleChange} required />
+                        <input type="text" id="number" value={this.state.value} onChange={this.handleChange} required />
                     </label>
                     <input type="submit" value="Add Block"/>
                 </form>
@@ -188,7 +187,23 @@ class AddProject extends React.Component<{}, { value: string }> {
                     <h2 className="loggedIn" id="back"><a href="/">Back</a></h2>
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    
+                    <label>
+                        Project Name:
+                        <input type="text" id="pName" value={this.state.value} onChange={this.handleChange} required />
+                    </label>
+                    <label>
+                        Project Length:
+                        <input type="number" id="pLength" value={this.state.value} onChange={this.handleChange} required />
+                    </label>
+                    <label>
+                        Project Priority:
+                        <input type="number" id="pPriority" value={this.state.value} onChange={this.handleChange} required />
+                    </label>
+                    <label>
+                        Project Due Date:
+                        <input type="date" id="pDate" value={this.state.value} onChange={this.handleChange} required />
+                    </label>
+                    <input type="submit" value="Add Add Project" />
                 </form>
             </div>
         );
@@ -223,7 +238,18 @@ class Preferences extends React.Component<{}, { value: string }> {
                     <h2 className="loggedIn" id="back"><a href="/">Back</a></h2>
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    
+                    <div>
+                        <label>Grouped
+                            <input type="radio" id="grouped" name="grouping" value="Grouped" checked />
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>Un-Grouped
+                            <input type="radio" id="ungrouped" name="grouping" value="Un-Grouped" />
+                        </label>
+                    </div>
+                    <input type="submit" value="Change Preferences" />
                 </form>
             </div>
         );
