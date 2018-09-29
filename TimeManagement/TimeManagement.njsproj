@@ -41,6 +41,12 @@
     <Compile Include="checkMongoConnection.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="addAdminMongo.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mongoController.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="packeryController.js">
       <SubType>Code</SubType>
     </Compile>

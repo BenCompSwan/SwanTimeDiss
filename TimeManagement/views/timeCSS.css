@@ -1,4 +1,13 @@
 ﻿/*This area is for the top nav bar#####################################################*/
+a {
+    text-decoration: none;
+}
+a:link {
+    color: black;
+}
+a:hover {
+    color: white;
+}
 
 .navArea {
     position: fixed;
@@ -90,6 +99,12 @@
     left: 90%;
 }
 
+#back {
+    position: fixed;
+    width: 130px;
+    left: 2%;
+}
+
 /*This area is for the neural net control buttons######################################*/
 
 .nNButtons {
@@ -143,7 +158,7 @@
 
 #reset {
     position: fixed;
-    width: 180px;
+    width: 200px;
     height: 30px;
     left: 62%;
 }
@@ -175,16 +190,22 @@
     border-style: solid;
     border-width: 1px;
     border-color: rgba(80,80,255,0.8);
+    font-style: normal;
+    font-size: 20px;
+    font: 'Palatino Linotype';
 }
 
-.grid-item:hover {
-    width: 24.5%;
-    height: 19.5%;
-    background-color: rgba(180,180,255,0.8);
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(255,255,255,0.8);
-}
+    .grid-item:hover {
+        width: 24.5%;
+        height: 19.5%;
+        background-color: rgba(180,180,255,0.8);
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(255,255,255,0.8);
+        font-style: normal;
+        font-size: 20px;
+        font: 'Palatino Linotype';
+    }
 
 .grid-item.is-dragging,
 .grid-item.is-positioning-post-drag {

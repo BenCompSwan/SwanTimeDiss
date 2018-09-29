@@ -46,7 +46,7 @@ app.use('/addBlock', function (req, res) {
 
 //preferences routing
 app.use('/preferences', function (req, res) {
-    console.log('Displaying the preferecnes page');
+    console.log('Displaying the preferences page');
     res.render('preferences.html')
 });
 

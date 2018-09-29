@@ -15,22 +15,35 @@ var ReactDOM = require("react-dom");
 var neuralNetControllers = require('./neuralNetController.js');
 var packController = require('./packeryController.js');
 var $ = require('jquery');
+//class for the index page
 var Hello = /** @class */ (function (_super) {
     __extends(Hello, _super);
-    function Hello() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Hello(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = { value: '' };
+        _this.handleClick = _this.handleClick.bind(_this);
+        return _this;
     }
+    Hello.prototype.handleClick = function (event) {
+        //if element is in grid
+        //if it is the reset NN command
+    };
     Hello.prototype.render = function () {
         return (React.createElement("div", { className: "mainContainer" },
             React.createElement("div", { className: "navArea" },
                 React.createElement("h1", { id: "pageTitle" }, "TMS Time Management System"),
-                React.createElement("h2", { className: "logIn" }, "Log In"),
-                React.createElement("h2", { className: "loggedIn", id: "prefs" }, "Preferences"),
-                React.createElement("h2", { className: "loggedIn", id: "logOut" }, "Log Out")),
+                React.createElement("h2", { className: "logIn" },
+                    React.createElement("a", { href: "login" }, "Log In")),
+                React.createElement("h2", { className: "loggedIn", id: "prefs" },
+                    React.createElement("a", { href: "preferences" }, "Preferences")),
+                React.createElement("h2", { className: "loggedIn", id: "logOut" },
+                    React.createElement("a", { href: "login" }, "Log Out"))),
             React.createElement("div", { className: "nNButtons" },
-                React.createElement("h2", { className: "buttonsNN", id: "task" }, "Add new task"),
-                React.createElement("h2", { className: "buttonsNN", id: "block" }, "Add new block"),
-                React.createElement("h2", { className: "buttonsNN", id: "reset" }, "Reset Sorting Logic")),
+                React.createElement("h2", { className: "buttonsNN", id: "task" },
+                    React.createElement("a", { href: "addBlock" }, "Add project")),
+                React.createElement("h2", { className: "buttonsNN", id: "block" },
+                    React.createElement("a", { href: "addBlock" }, "Add block")),
+                React.createElement("h2", { className: "buttonsNN", id: "reset" }, "Reset Neural Network")),
             React.createElement("div", { className: 'timeplan' },
                 React.createElement("div", { className: "grid", "data-packery": '{"itemSelector":".grid-item"}' },
                     React.createElement("div", { className: "grid-item", id: "1" }, "Monday 9-11"),
@@ -56,6 +69,7 @@ var Hello = /** @class */ (function (_super) {
     };
     return Hello;
 }(React.Component));
+//class for the login page
 var LoginForm = /** @class */ (function (_super) {
     __extends(LoginForm, _super);
     function LoginForm(props) {
@@ -78,6 +92,10 @@ var LoginForm = /** @class */ (function (_super) {
     };
     LoginForm.prototype.render = function () {
         return (React.createElement("div", { className: "mainContainer" },
+            React.createElement("div", { className: "navArea" },
+                React.createElement("h1", { id: "pageTitle" }, "TMS Time Management System"),
+                React.createElement("h2", { className: "loggedIn", id: "back" },
+                    React.createElement("a", { href: "/" }, "Back"))),
             React.createElement("form", { onSubmit: this.handleSubmit },
                 React.createElement("label", null,
                     "Username/ Email:",
@@ -89,6 +107,7 @@ var LoginForm = /** @class */ (function (_super) {
     };
     return LoginForm;
 }(React.Component));
+//class for block page
 var AddBlock = /** @class */ (function (_super) {
     __extends(AddBlock, _super);
     function AddBlock(props) {
@@ -107,6 +126,10 @@ var AddBlock = /** @class */ (function (_super) {
     };
     AddBlock.prototype.render = function () {
         return (React.createElement("div", { className: "mainContainer" },
+            React.createElement("div", { className: "navArea" },
+                React.createElement("h1", { id: "pageTitle" }, "TMS Time Management System"),
+                React.createElement("h2", { className: "loggedIn", id: "back" },
+                    React.createElement("a", { href: "/" }, "Back"))),
             React.createElement("form", { onSubmit: this.handleSubmit },
                 React.createElement("label", null,
                     "Block Name:",
@@ -121,6 +144,7 @@ var AddBlock = /** @class */ (function (_super) {
     };
     return AddBlock;
 }(React.Component));
+//class for projects
 var AddProject = /** @class */ (function (_super) {
     __extends(AddProject, _super);
     function AddProject(props) {
@@ -139,10 +163,15 @@ var AddProject = /** @class */ (function (_super) {
     };
     AddProject.prototype.render = function () {
         return (React.createElement("div", { className: "mainContainer" },
+            React.createElement("div", { className: "navArea" },
+                React.createElement("h1", { id: "pageTitle" }, "TMS Time Management System"),
+                React.createElement("h2", { className: "loggedIn", id: "back" },
+                    React.createElement("a", { href: "/" }, "Back"))),
             React.createElement("form", { onSubmit: this.handleSubmit })));
     };
     return AddProject;
 }(React.Component));
+//class for preferences page
 var Preferences = /** @class */ (function (_super) {
     __extends(Preferences, _super);
     function Preferences(props) {
@@ -161,13 +190,20 @@ var Preferences = /** @class */ (function (_super) {
     };
     Preferences.prototype.render = function () {
         return (React.createElement("div", { className: "mainContainer" },
+            React.createElement("div", { className: "navArea" },
+                React.createElement("h1", { id: "pageTitle" }, "TMS Time Management System"),
+                React.createElement("h2", { className: "loggedIn", id: "back" },
+                    React.createElement("a", { href: "/" }, "Back"))),
             React.createElement("form", { onSubmit: this.handleSubmit })));
     };
     return Preferences;
 }(React.Component));
+//would initialise the draggable elements
 //packController.initDrag();
+//creates a neural network
 var testNet = neuralNetControllers.createNet();
 neuralNetControllers.viewNetLayers(testNet);
+//checks which html page the user is on
 if (document.getElementById('root')) {
     ReactDOM.render(React.createElement(Hello, null), document.getElementById('root'));
 }

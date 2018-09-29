@@ -5,25 +5,40 @@ import * as ReactDOM from "react-dom";
 var neuralNetControllers = require('./neuralNetController.js');
 var packController = require('./packeryController.js');
 var $ = require('jquery');
+var encryption = require('bcrypt');
+var clickCounter = 0;
 
+//class for the index page
 class Hello extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { value: '' };
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
     
+    handleClick(event) {
+        //if element is in grid
+        //if it is the reset NN command
+    }
+
     render() {
         return (
             <div className="mainContainer">
                 <div className="navArea">
                     <h1 id="pageTitle">TMS Time Management System</h1>
-                    <h2 className="logIn">Log In</h2>
-                    <h2 className="loggedIn" id="prefs">Preferences</h2>
-                    <h2 className="loggedIn" id="logOut">Log Out</h2>
+                    <h2 className="logIn"><a href="login">Log In</a></h2>
+                    <h2 className="loggedIn" id="prefs"><a href="preferences">Preferences</a></h2>
+                    <h2 className="loggedIn" id="logOut"><a href="login">Log Out</a></h2>
                 </div>
                 <div className="nNButtons">
-                    <h2 className="buttonsNN" id="task">Add new task</h2>
-                    <h2 className="buttonsNN" id="block">Add new block</h2>
-                    <h2 className="buttonsNN" id="reset">Reset Sorting Logic</h2>
+                    <h2 className="buttonsNN" id="task"><a href="addProject">Add project</a></h2>
+                    <h2 className="buttonsNN" id="block"><a href="addBlock">Add block</a></h2>
+                    <h2 className="buttonsNN" id="reset">Reset Neural Network</h2>
                 </div>
                 <div className='timeplan'>
-                    {/*Packery controlled NN to go here*/}
+                    {/*Packery controlled NN display*/}
                     <div className="grid" data-packery='{"itemSelector":".grid-item"}'>
                         <div className="grid-item" id="1">Monday 9-11</div>
                         <div className="grid-item" id="2">Monday 11-13</div>
@@ -53,6 +68,7 @@ class Hello extends React.Component {
     }
 }
 
+//class for the login page
 class LoginForm extends React.Component<{}, {value: string}> {
     constructor(props) {
         super(props);
@@ -78,6 +94,10 @@ class LoginForm extends React.Component<{}, {value: string}> {
     render() {
         return (
             <div className="mainContainer">
+                <div className="navArea">
+                    <h1 id="pageTitle">TMS Time Management System</h1>
+                    <h2 className="loggedIn" id="back"><a href="/">Back</a></h2>
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Username/ Email:
@@ -94,6 +114,7 @@ class LoginForm extends React.Component<{}, {value: string}> {
     }
 }
 
+//class for block page
 class AddBlock extends React.Component<{}, { value: string }> {
     constructor(props) {
         super(props);
@@ -115,6 +136,10 @@ class AddBlock extends React.Component<{}, { value: string }> {
     render() {
         return (
             <div className="mainContainer">
+                <div className="navArea">
+                    <h1 id="pageTitle">TMS Time Management System</h1>
+                    <h2 className="loggedIn" id="back"><a href="/">Back</a></h2>
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Block Name:
@@ -135,6 +160,7 @@ class AddBlock extends React.Component<{}, { value: string }> {
     }
 }
 
+//class for projects
 class AddProject extends React.Component<{}, { value: string }> {
     constructor(props) {
         super(props);
@@ -157,6 +183,10 @@ class AddProject extends React.Component<{}, { value: string }> {
     render() {
         return (
             <div className="mainContainer">
+                <div className="navArea">
+                    <h1 id="pageTitle">TMS Time Management System</h1>
+                    <h2 className="loggedIn" id="back"><a href="/">Back</a></h2>
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     
                 </form>
@@ -165,6 +195,7 @@ class AddProject extends React.Component<{}, { value: string }> {
     }
 }
 
+//class for preferences page
 class Preferences extends React.Component<{}, { value: string }> {
     constructor(props) {
         super(props);
@@ -187,6 +218,10 @@ class Preferences extends React.Component<{}, { value: string }> {
     render() {
         return (
             <div className="mainContainer">
+                <div className="navArea">
+                    <h1 id="pageTitle">TMS Time Management System</h1>
+                    <h2 className="loggedIn" id="back"><a href="/">Back</a></h2>
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     
                 </form>
@@ -195,10 +230,12 @@ class Preferences extends React.Component<{}, { value: string }> {
     }
 }
 
-
+//would initialise the draggable elements
 //packController.initDrag();
+//creates a neural network
 var testNet = neuralNetControllers.createNet();
 neuralNetControllers.viewNetLayers(testNet);
+//checks which html page the user is on
 if (document.getElementById('root')) {
 ReactDOM.render(<Hello />, document.getElementById('root'));
 }
