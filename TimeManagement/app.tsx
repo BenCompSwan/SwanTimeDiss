@@ -97,6 +97,7 @@ class LoginForm extends React.Component<{}, {value: string}> {
                     <h1 id="pageTitle">TMS Time Management System</h1>
                     <h2 className="loggedIn" id="back"><a href="/">Back</a></h2>
                 </div>
+                <div className="inputFields">
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Username/ Email:
@@ -107,7 +108,8 @@ class LoginForm extends React.Component<{}, {value: string}> {
                         <input type="password" id="pass" value={this.state.value} onChange={this.handleChange} required />
                     </label>
                     <input type="submit" value="Submit" />
-                </form>
+                    </form>
+                    </div>
             </div>
         );
     }
@@ -139,6 +141,7 @@ class AddBlock extends React.Component<{}, { value: string }> {
                     <h1 id="pageTitle">TMS Time Management System</h1>
                     <h2 className="loggedIn" id="back"><a href="/">Back</a></h2>
                 </div>
+                <div className="inputFields">
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Block Name:
@@ -153,7 +156,8 @@ class AddBlock extends React.Component<{}, { value: string }> {
                         <input type="text" id="number" value={this.state.value} onChange={this.handleChange} required />
                     </label>
                     <input type="submit" value="Add Block"/>
-                </form>
+                    </form>
+                </div>
             </div>
         );
     }
@@ -186,7 +190,8 @@ class AddProject extends React.Component<{}, { value: string }> {
                     <h1 id="pageTitle">TMS Time Management System</h1>
                     <h2 className="loggedIn" id="back"><a href="/">Back</a></h2>
                 </div>
-                <form onSubmit={this.handleSubmit}>
+                <div className="inputFields">
+                    <form onSubmit={this.handleSubmit}>
                     <label>
                         Project Name:
                         <input type="text" id="pName" value={this.state.value} onChange={this.handleChange} required />
@@ -204,7 +209,8 @@ class AddProject extends React.Component<{}, { value: string }> {
                         <input type="date" id="pDate" value={this.state.value} onChange={this.handleChange} required />
                     </label>
                     <input type="submit" value="Add Add Project" />
-                </form>
+                    </form>
+                 </div>
             </div>
         );
     }
@@ -237,7 +243,8 @@ class Preferences extends React.Component<{}, { value: string }> {
                     <h1 id="pageTitle">TMS Time Management System</h1>
                     <h2 className="loggedIn" id="back"><a href="/">Back</a></h2>
                 </div>
-                <form onSubmit={this.handleSubmit}>
+                <div className="inputFields">
+                    <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>Grouped
                             <input type="radio" id="grouped" name="grouping" value="Grouped" checked />
@@ -250,7 +257,8 @@ class Preferences extends React.Component<{}, { value: string }> {
                         </label>
                     </div>
                     <input type="submit" value="Change Preferences" />
-                </form>
+                    </form>
+                </div>
             </div>
         );
     }

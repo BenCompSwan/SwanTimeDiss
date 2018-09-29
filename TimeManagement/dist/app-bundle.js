@@ -193,14 +193,15 @@ var LoginForm = /** @class */ (function (_super) {
                 React.createElement("h1", { id: "pageTitle" }, "TMS Time Management System"),
                 React.createElement("h2", { className: "loggedIn", id: "back" },
                     React.createElement("a", { href: "/" }, "Back"))),
-            React.createElement("form", { onSubmit: this.handleSubmit },
-                React.createElement("label", null,
-                    "Username/ Email:",
-                    React.createElement("input", { type: "text", id: "user", value: this.state.value, onChange: this.handleChange, required: true })),
-                React.createElement("label", null,
-                    "Password:",
-                    React.createElement("input", { type: "password", id: "pass", value: this.state.value, onChange: this.handleChange, required: true })),
-                React.createElement("input", { type: "submit", value: "Submit" }))));
+            React.createElement("div", { className: "inputFields" },
+                React.createElement("form", { onSubmit: this.handleSubmit },
+                    React.createElement("label", null,
+                        "Username/ Email:",
+                        React.createElement("input", { type: "text", id: "user", value: this.state.value, onChange: this.handleChange, required: true })),
+                    React.createElement("label", null,
+                        "Password:",
+                        React.createElement("input", { type: "password", id: "pass", value: this.state.value, onChange: this.handleChange, required: true })),
+                    React.createElement("input", { type: "submit", value: "Submit" })))));
     };
     return LoginForm;
 }(React.Component));
@@ -227,17 +228,18 @@ var AddBlock = /** @class */ (function (_super) {
                 React.createElement("h1", { id: "pageTitle" }, "TMS Time Management System"),
                 React.createElement("h2", { className: "loggedIn", id: "back" },
                     React.createElement("a", { href: "/" }, "Back"))),
-            React.createElement("form", { onSubmit: this.handleSubmit },
-                React.createElement("label", null,
-                    "Block Name:",
-                    React.createElement("input", { type: "text", id: "bName", value: this.state.value, onChange: this.handleChange, required: true })),
-                React.createElement("label", null,
-                    "Block time:",
-                    React.createElement("input", { type: "text", id: "bTime", value: this.state.value, onChange: this.handleChange, required: true })),
-                React.createElement("label", null,
-                    "Block Amount:",
-                    React.createElement("input", { type: "text", id: "bAmount", value: this.state.value, onChange: this.handleChange, required: true })),
-                React.createElement("input", { type: "submit", value: "Add Block" }))));
+            React.createElement("div", { className: "inputFields" },
+                React.createElement("form", { onSubmit: this.handleSubmit },
+                    React.createElement("label", null,
+                        "Block Name:",
+                        React.createElement("input", { type: "text", id: "bName", value: this.state.value, onChange: this.handleChange, required: true })),
+                    React.createElement("label", null,
+                        "Block time:",
+                        React.createElement("input", { type: "number", id: "bTime", value: this.state.value, onChange: this.handleChange, required: true })),
+                    React.createElement("label", null,
+                        "Block Amount:",
+                        React.createElement("input", { type: "text", id: "number", value: this.state.value, onChange: this.handleChange, required: true })),
+                    React.createElement("input", { type: "submit", value: "Add Block" })))));
     };
     return AddBlock;
 }(React.Component));
@@ -264,7 +266,21 @@ var AddProject = /** @class */ (function (_super) {
                 React.createElement("h1", { id: "pageTitle" }, "TMS Time Management System"),
                 React.createElement("h2", { className: "loggedIn", id: "back" },
                     React.createElement("a", { href: "/" }, "Back"))),
-            React.createElement("form", { onSubmit: this.handleSubmit })));
+            React.createElement("div", { className: "inputFields" },
+                React.createElement("form", { onSubmit: this.handleSubmit },
+                    React.createElement("label", null,
+                        "Project Name:",
+                        React.createElement("input", { type: "text", id: "pName", value: this.state.value, onChange: this.handleChange, required: true })),
+                    React.createElement("label", null,
+                        "Project Length:",
+                        React.createElement("input", { type: "number", id: "pLength", value: this.state.value, onChange: this.handleChange, required: true })),
+                    React.createElement("label", null,
+                        "Project Priority:",
+                        React.createElement("input", { type: "number", id: "pPriority", value: this.state.value, onChange: this.handleChange, required: true })),
+                    React.createElement("label", null,
+                        "Project Due Date:",
+                        React.createElement("input", { type: "date", id: "pDate", value: this.state.value, onChange: this.handleChange, required: true })),
+                    React.createElement("input", { type: "submit", value: "Add Add Project" })))));
     };
     return AddProject;
 }(React.Component));
@@ -291,7 +307,17 @@ var Preferences = /** @class */ (function (_super) {
                 React.createElement("h1", { id: "pageTitle" }, "TMS Time Management System"),
                 React.createElement("h2", { className: "loggedIn", id: "back" },
                     React.createElement("a", { href: "/" }, "Back"))),
-            React.createElement("form", { onSubmit: this.handleSubmit })));
+            React.createElement("div", { className: "inputFields" },
+                React.createElement("form", { onSubmit: this.handleSubmit },
+                    React.createElement("div", null,
+                        React.createElement("label", null,
+                            "Grouped",
+                            React.createElement("input", { type: "radio", id: "grouped", name: "grouping", value: "Grouped", checked: true }))),
+                    React.createElement("div", null,
+                        React.createElement("label", null,
+                            "Un-Grouped",
+                            React.createElement("input", { type: "radio", id: "ungrouped", name: "grouping", value: "Un-Grouped" }))),
+                    React.createElement("input", { type: "submit", value: "Change Preferences" })))));
     };
     return Preferences;
 }(React.Component));
