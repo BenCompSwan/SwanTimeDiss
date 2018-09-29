@@ -1,6 +1,6 @@
 ﻿//configuration parameters for neural network
 var config = {
-    inputs: 3, //3 inputs, priority, task length and combination of grouping and task ID
+    inputs: 3, //3 inputs, priority, task length and value based on grouping
     hiddenlayers: 1,
     hiddenNodesPerLayer: 10, //reasonable amount to allow for variance in sorting
     outputs: 1 //the boolean return value will be used to determine ordering
