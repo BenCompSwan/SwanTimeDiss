@@ -1,6 +1,7 @@
 'use strict';
 var path = require('path');
 var express = require('express');
+var cookieParser = require('cookie-parser');
 
 var app = express();
 
@@ -11,7 +12,9 @@ app.use(express.static(staticPath));
 
 app.set('views', __dirname + '/views');
 app.engine('html', engines.mustache);
-app.set('viewengine', 'html')
+app.set('viewengine', 'html');
+
+app.use(cookieParser());
 
 
 

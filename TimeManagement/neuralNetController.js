@@ -43,8 +43,6 @@ function viewNetLayers(net) {
 }
 
 module.exports = {
-    config: config,
-    nnConstructor: nnConstructor,
     createNet: createNet,
     resetNN: resetNN,
     initialiseNN: initialiseNN,
@@ -52,3 +50,5 @@ module.exports = {
     updateTrain: updateTrain,
     viewNetLayers: viewNetLayers
 }
+/*    config: config,
+    nnConstructor: nnConstructor,*/
