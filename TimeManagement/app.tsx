@@ -4,6 +4,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 var neuralNetControllers = require('./neuralNetController.js');
 var packController = require('./packeryController.js');
+//var dbController = require('./mongoController.js');
 var $ = require('jquery');
 var clickCounter = 0;
 
@@ -71,20 +72,25 @@ class Hello extends React.Component {
 class LoginForm extends React.Component<{}, {value: string}> {
     constructor(props) {
         super(props);
-        this.state = { value: '' };
-
-        this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            value: ''
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(event) {
-        this.setState({ value: event.target.value });
     }
 
     handleSubmit(event) {
         console.log('A login was requested');
         event.preventDefault();
+        const data = new FormData(event.target);
+
+        console.log(data);
+
+        fetch('http://localhost:1337/login',{
+            method: 'Post',
+            body: data,
+        });
         //handle login
+        //await dbController.checkUser(this.state.usern, this.state.pass);
         //check with mongo
         //if correct redirect to index
         //if not redirect to login page
@@ -101,11 +107,11 @@ class LoginForm extends React.Component<{}, {value: string}> {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Username/ Email:
-                        <input type="text" id="user" value={this.state.value} onChange={this.handleChange} required />
+                        <input name="usern" type="text" id="user"   required />
                     </label>
                     <label>
                         Password:
-                        <input type="password" id="pass" value={this.state.value} onChange={this.handleChange} required />
+                        <input name="pass" type="password" id="pass"   required />
                     </label>
                     <input type="submit" value="Submit" />
                     </form>

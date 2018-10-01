@@ -8,6 +8,38 @@ var config = {
 };
 var nnConstructor = require('neuralnet');
 
+var fs = require('fs'), 
+    path = require('path'),
+    gPath = path.join(__dirname, "grouped.txt"),
+    ugPath = path.join(__dirname, "ungrouped.txt");
+console.log(gPath);
+console.log(ugPath);
+//read grouped file
+var grouped = "";
+fs.readFile(gPath, {encoding: 'utf-8'}, function(err, data){
+    if(!err){
+        console.log(data);
+        grouped = String(data);
+    } else{
+        console.log(err);
+    }
+});
+//read ungrouped
+var ungrouped ="";
+fs.readFile(ugPath, {encoding: 'utf-8'}, function(err, data){
+    if(!err){
+        console.log(data);
+        ungrouped = String(data);
+    } else{
+        console.log(err);
+    }
+});
+//grouped = reader.readAsText(new File("./grouped.txt"));
+//ungrouped = reader.readAsText(new File("./ungrouped.txt"));
+//parse the data into arrays
+var groupedArr = grouped.split(";");
+var ungroupedArr = ungrouped.split(";");
+
 //vars for constructor and the neural network
 //this needs to be elsewhere
 function createNet() {
@@ -22,14 +54,30 @@ function resetNN(net, resetPred, resetOut){
     return net;
 }
 
-function initialiseNN(net, trainPredict, truthOutputs) {
-    net.train(trainPredict, truthOutputs);
-    console.log(net);
-    return net;
+function initialiseNN(net, grouped) {
+    var trainPredict, truthOutputs;
+    if(grouped === 1){
+        //pass grouped data
+        trainPredict = groupedArr;
+        truthOutputs = groupedArr;
+        //train net
+        net.train(trainPredict, truthOutputs);
+        console.log(net);
+        return net;
+    }else if(grouped === 0){
+        //pass ungrouped data
+        trainPredict = groupedArr;
+        truthOutputs = groupedArr;
+        //train net
+        net.train(trainPredict, truthOutputs);
+        console.log(net);
+        return net;
+    }
+
 }
 
 function predictNN(inputs, net, outputs){
-    outputs = net.predictBoolean(inputs);
+    outputs = net.predict(inputs);
     return outputs;
 }
 

@@ -53,11 +53,23 @@
     <Compile Include="neuralNetController.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="routes.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="webpack-config.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="server.js" />
     <Content Include="dist\app-bundle.js.map" />
+    <Content Include="grouped.txt">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="ungrouped.txt">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\index.html">
       <SubType>Code</SubType>
     </Content>

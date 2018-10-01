@@ -14,6 +14,7 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 var neuralNetControllers = require('./neuralNetController.js');
 var packController = require('./packeryController.js');
+//var dbController = require('./mongoController.js');
 var $ = require('jquery');
 var clickCounter = 0;
 //class for the index page
@@ -75,18 +76,23 @@ var LoginForm = /** @class */ (function (_super) {
     __extends(LoginForm, _super);
     function LoginForm(props) {
         var _this = _super.call(this, props) || this;
-        _this.state = { value: '' };
-        _this.handleChange = _this.handleChange.bind(_this);
+        _this.state = {
+            value: ''
+        };
         _this.handleSubmit = _this.handleSubmit.bind(_this);
         return _this;
     }
-    LoginForm.prototype.handleChange = function (event) {
-        this.setState({ value: event.target.value });
-    };
     LoginForm.prototype.handleSubmit = function (event) {
         console.log('A login was requested');
         event.preventDefault();
+        var data = new FormData(event.target);
+        console.log(data);
+        fetch('http://localhost:1337/login', {
+            method: 'Post',
+            body: data,
+        });
         //handle login
+        //await dbController.checkUser(this.state.usern, this.state.pass);
         //check with mongo
         //if correct redirect to index
         //if not redirect to login page
@@ -101,10 +107,10 @@ var LoginForm = /** @class */ (function (_super) {
                 React.createElement("form", { onSubmit: this.handleSubmit },
                     React.createElement("label", null,
                         "Username/ Email:",
-                        React.createElement("input", { type: "text", id: "user", value: this.state.value, onChange: this.handleChange, required: true })),
+                        React.createElement("input", { name: "usern", type: "text", id: "user", required: true })),
                     React.createElement("label", null,
                         "Password:",
-                        React.createElement("input", { type: "password", id: "pass", value: this.state.value, onChange: this.handleChange, required: true })),
+                        React.createElement("input", { name: "pass", type: "password", id: "pass", required: true })),
                     React.createElement("input", { type: "submit", value: "Submit" })))));
     };
     return LoginForm;
